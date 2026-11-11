@@ -1,0 +1,24 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended",
+        // picks up the `# renovate:` annotated ARGs in the Dockerfile
+        "customManagers:dockerfileVersions"
+    ],
+    "assignees": ["BrutalBirdie"],
+    "commitBody": "Co-authored-by: BrutalBirdie <20840012+BrutalBirdie@users.noreply.github.com>",
+    "assignAutomerge": true,
+    "automerge": true,
+    // GitHub auto-merge needs branch protection, which would block the release workflows pushing to main
+    "platformAutomerge": false,
+    "packageRules": [
+        {
+            "matchUpdateTypes": ["major"],
+            "automerge": false
+        },
+        {
+            "matchPackageNames": ["mozilla-services/syncstorage-rs"],
+            "commitMessageTopic": "syncstorage-rs"
+        }
+    ]
+}

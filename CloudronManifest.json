@@ -1,0 +1,40 @@
+{
+  "id": "org.mozilla.syncstorage.cloudronapp",
+  "title": "Firefox Sync Server",
+  "author": "Mozilla Services",
+  "description": "file://DESCRIPTION.md",
+  "changelog": "file://CHANGELOG.md",
+  "tagline": "Self-hosted storage for Firefox Sync",
+  "version": "1.0.0",
+  "upstreamVersion": "0.24.1",
+  "healthCheckPath": "/__heartbeat__",
+  "httpPort": 8000,
+  "addons": {
+    "localstorage": {},
+    "postgresql": {},
+    "scheduler": {
+      "purge_expired": {
+        "schedule": "17 3 * * *",
+        "command": "/app/pkg/purge.sh"
+      }
+    }
+  },
+  "manifestVersion": 2,
+  "website": "https://github.com/mozilla-services/syncstorage-rs",
+  "documentationUrl": "https://mozilla-services.github.io/syncstorage-rs/",
+  "contactEmail": "brutalbirdie@gmail.com",
+  "icon": "file://logo.png",
+  "tags": [
+    "sync",
+    "browser"
+  ],
+  "postInstallMessage": "file://POSTINSTALL.md",
+  "minBoxVersion": "10.1.5",
+  "packagerName": "BrutalBirdie",
+  "packagerUrl": "https://github.com/BrutalBirdie/mozilla-syncstorage-rs-app",
+  "iconUrl": "https://raw.githubusercontent.com/BrutalBirdie/mozilla-syncstorage-rs-app/refs/heads/main/logo.png",
+  "packageUrl": "https://github.com/BrutalBirdie/mozilla-syncstorage-rs-app",
+  "mediaLinks": [
+    "https://raw.githubusercontent.com/BrutalBirdie/mozilla-syncstorage-rs-app/refs/heads/main/screenshots/1.png"
+  ]
+}
