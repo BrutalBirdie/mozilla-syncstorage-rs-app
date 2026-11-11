@@ -23,6 +23,9 @@ export SYNC_PORT=8000
 # the postgresql addon is shared by all apps, upstream default is 10 per pool
 export SYNC_SYNCSTORAGE__DATABASE_POOL_MAX_SIZE=5
 export SYNC_TOKENSERVER__DATABASE_POOL_MAX_SIZE=5
+# upstream defaults point at the Mozilla accounts staging servers
+export SYNC_TOKENSERVER__FXA_EMAIL_DOMAIN=api.accounts.firefox.com
+export SYNC_TOKENSERVER__FXA_OAUTH_SERVER_URL=https://oauth.accounts.firefox.com
 
 source /app/data/env.sh
 source /app/data/.secrets.sh
