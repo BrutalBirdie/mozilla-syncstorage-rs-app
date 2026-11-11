@@ -1,4 +1,51 @@
 {
     "stable": true,
-    "versions": {}
+    "versions": {
+        "0.1.0": {
+            "manifest": {
+                "id": "org.mozilla.syncstorage.cloudronapp",
+                "title": "Firefox Sync Server",
+                "author": "Mozilla Services",
+                "description": "Mozilla's Sync Storage server (syncstorage-rs) lets you store your Firefox Sync data on your own server. Bookmarks, history, passwords, open tabs, add-ons and preferences are encrypted in the browser before they are uploaded, so the server never sees them in plain text.\n\nSign-in still uses your Mozilla account. Only the storage of the encrypted sync data moves to your Cloudron.\n\n### Features\n\n* Sync for Firefox desktop and Firefox for Android\n* Includes the Tokenserver that hands out storage credentials after Mozilla account sign-in\n* Data is stored in PostgreSQL and included in Cloudron backups\n* Option to block new accounts once your own devices are connected\n",
+                "changelog": "* Initial version with syncstorage-rs 0.24.1\n* Syncstorage and Tokenserver backed by the Cloudron PostgreSQL addon\n* Daily purge of expired records\n",
+                "tagline": "Self-hosted storage for Firefox Sync",
+                "version": "0.1.0",
+                "upstreamVersion": "0.24.1",
+                "healthCheckPath": "/__heartbeat__",
+                "httpPort": 8000,
+                "addons": {
+                    "localstorage": {},
+                    "postgresql": {},
+                    "scheduler": {
+                        "purge_expired": {
+                            "schedule": "17 3 * * *",
+                            "command": "/app/pkg/purge.sh"
+                        }
+                    }
+                },
+                "manifestVersion": 2,
+                "website": "https://github.com/mozilla-services/syncstorage-rs",
+                "documentationUrl": "https://mozilla-services.github.io/syncstorage-rs/",
+                "contactEmail": "brutalbirdie@gmail.com",
+                "icon": "file://logo.png",
+                "tags": [
+                    "sync",
+                    "browser"
+                ],
+                "postInstallMessage": "This app has no web interface. Point Firefox at it **before** signing in to your Mozilla account:\n\n* **Desktop**: open `about:config`, set `identity.sync.tokenserver.uri` to `$CLOUDRON-APP-ORIGIN/1.0/sync/1.5` and restart Firefox.\n* **Android**: open **Settings → About Firefox**, tap the logo five times, go back to **Settings → Sync Debug** and set **Custom Sync server** to `$CLOUDRON-APP-ORIGIN/1.0/sync/1.5`.\n\nIf you are already signed in, sign out, change the setting and sign in again.\n\nAnyone with a Mozilla account who knows this URL can store data here. After your devices are connected, set `SYNC_TOKENSERVER__ALLOW_NEW_USERS=false` in `/app/data/env.sh` with the File Manager and restart the app.\n",
+                "minBoxVersion": "10.1.5",
+                "packagerName": "BrutalBirdie",
+                "packagerUrl": "https://github.com/BrutalBirdie/mozilla-syncstorage-rs-app",
+                "iconUrl": "https://raw.githubusercontent.com/BrutalBirdie/mozilla-syncstorage-rs-app/refs/heads/main/logo.png",
+                "packageUrl": "https://github.com/BrutalBirdie/mozilla-syncstorage-rs-app",
+                "mediaLinks": [
+                    "https://raw.githubusercontent.com/BrutalBirdie/mozilla-syncstorage-rs-app/refs/heads/main/screenshots/1.png"
+                ],
+                "dockerImage": "ghcr.io/brutalbirdie/mozilla-syncstorage-rs-app:0.1.0"
+            },
+            "creationDate": "Wed, 11 Nov 2026 12:34:06 GMT",
+            "ts": "Wed, 11 Nov 2026 12:34:06 GMT",
+            "publishState": "published"
+        }
+    }
 }
