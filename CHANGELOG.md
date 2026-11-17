@@ -2,3 +2,6 @@
 * Initial version with syncstorage-rs 0.24.1
 * Syncstorage and Tokenserver backed by the Cloudron PostgreSQL addon
 * Daily purge of expired records
+
+[0.1.1]
+* Update syncstorage-rs to v0.25.0
