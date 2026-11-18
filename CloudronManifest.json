@@ -5,8 +5,8 @@
   "description": "file://DESCRIPTION.md",
   "changelog": "file://CHANGELOG.md",
   "tagline": "Self-hosted storage for Firefox Sync",
-  "version": "0.1.1",
-  "upstreamVersion": "0.25.0",
+  "version": "0.1.2",
+  "upstreamVersion": "0.25.1",
   "healthCheckPath": "/__heartbeat__",
   "httpPort": 8000,
   "addons": {
