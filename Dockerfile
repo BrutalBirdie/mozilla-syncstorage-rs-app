@@ -5,7 +5,7 @@ RUN apt-get update && \
     rm -rf /var/cache/apt /var/lib/apt/lists
 
 # renovate: datasource=github-releases depName=mozilla-services/syncstorage-rs versioning=semver
-ARG SYNCSTORAGE_VERSION=0.25.1
+ARG SYNCSTORAGE_VERSION=0.25.2
 
 WORKDIR /build
 RUN curl -sSLf "https://github.com/mozilla-services/syncstorage-rs/archive/refs/tags/${SYNCSTORAGE_VERSION}.tar.gz" | tar -xz --strip-components 1
