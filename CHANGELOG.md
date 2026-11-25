@@ -8,3 +8,6 @@
 
 [0.1.2]
 * Update syncstorage-rs to v0.25.1
+
+[0.1.3]
+* Update syncstorage-rs to v0.25.2
